@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fast Food Bill Management System</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+        @media print {
+            body {
+                background: white;
+                margin: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 0;
+            }
+            header, .total {
+                margin-bottom: 20px;
+            }
+            .form-group, .btn {
+                display: none; /* Hide inputs and buttons during printing */
+            }
+            table {
+                border: 1px solid #000; /* Add border to the table */
+            }
+            th, td {
+                border: 1px solid #000; /* Add solid borders for better visibility */
+                padding: 8px;
+                text-align: left;
+            }
+            .total h2 {
+                font-size: 1.5em; /* Increase total font size for visibility */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <header class="header text-center mb-4">
+            <img src="Fast.avif" alt="Logo" class="logo mb-2" style="width: 100px" />
+            <h1>Fast Food Bill Management</h1>
+        </header>
+        <div class="form-group row">
+            <div class="col-md-4">
+                <select id="foodItem" class="form-control" required>
+                    <option value="" disabled selected>Select Fast Food Item</option>
+                    <option value="Pizza">1.Pizza</option>
+                    <option value="Burger">2.Burger</option>
+                    <option value="Fries">3.Fries</option>
+                    <option value="Rebab">4.Rebab</option>
+                    <option value="Hotdog">5.Hot Dog</option>
+                    <option value="Veg Momos">6.Veg Momos</option>
+                    <option value="Sandwich">7.Sandwich</option>
+                    <option value="Bhutta">8.Bhutta</option>
+                    <option value="Dabeli">9.Dabeli</option>
+                    <option value="Dosa">10.Dosa</option>
+                    <option value="Aloo tikki">11.Aloo tikki</option>
+                    <option value="Kachori">12.Kachori</option>
+                    <option value="Panjabi samosa">13.Panjabi samosa</option>
+                    <option value="Veg kathi roll">14.Veg kathi roll</option>
+                    <option value="Pav bhaji">15.Pav Bhaji</option>
+                </select>
+            </div>
+            
+            <div class="col-md-3">
+                <input type="number" id="price" class="form-control" placeholder="Price" required />
+            </div>
+            <div class="col-md-3">
+                <input type="number" id="quantity" class="form-control" placeholder="Quantity" required />
+            </div>
+            <div class="col-md-2">
+                <button id="addButton" class="btn btn-success btn-block">Add to Bill</button>
+            </div>
+        </div>
+  
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Food Item</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="billTableBody">
+              <!-- Bill items will be added here -->
+            </tbody>
+        </table>
+        <div class="form-group row">
+            <div class="col-md-8">
+                <input type="number" id="discount" class="form-control" placeholder="Discount (%)" />
+            </div>
+            <div class="col-md-4">
+                <button id="applyDiscount" class="btn btn-warning btn-block">Apply Discount</button>
+                <button id="removeDiscount" class="btn btn-warning btn-block">Remove Discount</button>
+            </div>
+        </div>
+        <div class="total text-center">
+            <h2>Total: ₹ <span id="totalAmount">0.00</span></h2>
+        </div>
+        <button id="printButton" class="btn btn-primary btn-block mt-4">Print Bill</button>
+        <a href="http:/purchase-history.html"><button id="printButton" class="btn btn-primary btn-block mt-4">Dashboard</button></a>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

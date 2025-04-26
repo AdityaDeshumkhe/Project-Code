@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Purchase History</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+</head>
+<body>
+    <div class="container mt-5">
+        <header class="text-center mb-4">
+            <h1>Purchase History</h1>
+        </header>
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Food Item</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody id="historyTableBody">
+                <!-- Purchase history will be populated here -->
+            </tbody>
+        </table>
+        <div class="text-center">
+            <a href="index.html" class="btn btn-primary">Go Back</a>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', loadPurchaseHistory);
+
+        function loadPurchaseHistory() {
+            const billDetails = JSON.parse(localStorage.getItem('billDetails')) || [];
+            const tableBody = document.getElementById('historyTableBody');
+
+            billDetails.forEach(detail => {
+                const row = document.createElement('tr');
+
+                const itemCell = document.createElement('td');
+                itemCell.textContent = detail.foodItem;
+                row.appendChild(itemCell);
+
+                const priceCell = document.createElement('td');
+                priceCell.textContent = detail.price.toFixed(2);
+                row.appendChild(priceCell);
+
+                const quantityCell = document.createElement('td');
+                quantityCell.textContent = detail.quantity;
+                row.appendChild(quantityCell);
+
+                const subtotalCell = document.createElement('td');
+                subtotalCell.textContent = detail.subtotal.toFixed(2);
+                row.appendChild(subtotalCell);
+
+                tableBody.appendChild(row);
+            });
+        }
+    </script>
+</body>
+</html>

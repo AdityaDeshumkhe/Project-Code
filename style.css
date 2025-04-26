@@ -1,0 +1,133 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+h1 {
+    margin: 10px 0;
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 20%;
+    padding: 10px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.discount {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.total {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.5em;
+}
+
+#applyDiscount {
+    background-color: #ffc107;
+}
+
+#applyDiscount:hover {
+    background-color: #e0a800;
+}
+
+#printButton {
+    background-color: #007bff;
+    margin-top: 20px;
+}
+
+#printButton:hover {
+    background-color: #0056b3;
+}
+
+/* Existing styles remain unchanged */
+
+@media print {
+    body {
+        background-color: white; /* Set background to white for print */
+        margin: 0; /* Remove margin for print */
+    }
+    
+    .container {
+        box-shadow: none; /* Remove shadow for a cleaner print */
+        padding: 0; /* Remove padding for print */
+        border-radius: 0; /* Remove rounded corners for print */
+    }
+
+    header {
+        margin-bottom: 10px; /* Reduce margin for header */
+    }
+
+    table {
+        border: none; /* Remove borders for a cleaner look */
+    }
+
+    th, td {
+        border: 1px solid #000; /* Add solid borders for better visibility */
+        padding: 8px; /* Adjust padding */
+    }
+
+    .total {
+        font-size: 1.5em; /* Increase total font size */
+        margin-top: 20px; /* Ensure some space above total */
+    }
+
+    button {
+        display: none; /* Hide buttons on print */
+    }
+}
